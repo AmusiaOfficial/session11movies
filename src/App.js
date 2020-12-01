@@ -27,10 +27,6 @@ class App extends React.Component {
       });
 
   }
-  handleClick = () => {
-    //send us to the overview
-
-  }
   render() {
     // let movies = [];
     // for(let i = 0; i < this.state.movies.length; i++)
@@ -44,11 +40,17 @@ class App extends React.Component {
           <img className="background" src="https://i.pinimg.com/originals/d4/b3/e3/d4b3e3e114a251ed9d7d53e652210e25.jpg"/>
           <div className="Block">
           <h1>Check out these movies!!!!!!</h1>
+          <h4>Hover over posters for movie overviews.</h4>
           {this.state.movies.map(movie =>
             {
             
-              return <h2 onClick=""><img className="Image" src={imagePath + movie.poster_path}/><br></br>{movie.title} ({movie.vote_average + "/10"})</h2>;
-            
+              return <h2 className="tooltip"><img className="Image" src={imagePath + movie.poster_path}/><br></br>{movie.title} ({movie.vote_average + "/10"})<br/><span className="tooltiptext">{movie.overview}</span></h2>;
+              
+
+              // return <div>
+              //   <img className="Image" src={imagePath + movie.poster_path}/>
+
+              // </div>
             })}
             </div>
         </div>
